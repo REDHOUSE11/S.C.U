@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Care USA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Page 1: Welcome Page -->
+    <section class="page page-1">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="IMAGES/logo .png" alt="Special Care USA Logo">
+        </div>
+        
+        <!-- Contact Button with Dropdown -->
+        <div class="contact-container">
+            <button class="contact-button">Contact</button>
+            <div class="contact-dropdown">
+                <a href="tel:+12248066751">📞 Call Us</a>
+                <a href="mailto:specialcareusa@gmail.com">✉️ Email Us</a>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <h1>WELCOME TO</h1>
+            <p>YOUR ONE STOP HOME SPECIALIST</p>
+        </div>
+        
+        <!-- Tagline with Navigation Links -->
+        <div class="tagline">
+            <a href="#compassion"><span>COMPASSION</span></a>
+            <a href="#family-orientated"><span>FAMILY ORIENTATED</span></a>
+            <a href="#knowledgeable-care"><span>KNOWLEDGEABLE CARE</span></a>
+        </div>
+    </section>
+
+    <!-- Page 2: Knowledgeable Care -->
+    <section class="page page-2" id="knowledgeable-care">
+        <div class="knowledgeable-care">
+            <h2>KNOWLEDGEABLE</h2>
+            <h3>CARE</h3>
+        </div>
+
+        <!-- Photos and Text Sections -->
+        <div class="photos-text-container">
+            <div class="column">
+                <div class="image-section">
+                    <img src="IMAGES/values .jpg" alt="OUR VALUES">
+                </div>
+                <div class="text-section">
+                    <h3>OUR VALUES</h3>
+                    <p>ALL IN ONE, ONE STOP SPECIALIST 
+                        New perspective
+                        Beyond the normal
+                        Provide specialist, knowledgeable care
+                    </p>
+                </div>
+            </div>
+
+            <div class="column middle-column">
+                <div class="image-section">
+                    <img src="IMAGES/usa trained .jpg" alt="U.S.A and British trained">
+                </div>
+                <div class="text-section">
+                    <h3>U.S.A & British Trained</h3>
+                    <p>International Management Team             
+                        Specialist knowledge and care
+                        Holistic approach to international care
+                        Standard manner
+                    </p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="image-section">
+                    <img src="IMAGES/features.jpg" alt="OUR FEATURES">
+                </div>
+                <div class="text-section">
+                    <h3>OUR FEATURES</h3>
+                    <p>Safety and Care Priority 
+                        Dedicated Team caring for your needs
+                        Care Plan designed around your needs
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 3: Family Orientated -->
+    <section class="page-3" id="family-orientated">
+        <!-- Left Side: Text Content -->
+        <div class="left-side">
+            <div class="family-orientated">
+                <h2>FAMILY</h2>
+                <h2>ORIENTATED</h2>
+            </div>
+            <div class="text-sections">
+                <div class="text-section">
+                    <p>To make you feel safe and comfortable.</p>
+                    <p>Improving your health and restore your independence.</p>
+                    <p>Unique for your specific situation and needs.</p>
+                    <p>Providing a team of specialists above the care norm.</p>
+                    <p>Advanced post care.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Single Image -->
+        <div class="right-side">
+            <div class="image-section">
+                <img src="IMAGES/33.jpg" alt="Family Orientated Image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Green Line and Contact Info -->
+    <div class="green-line-container">
+        <div class="green-line"></div>
+        <div class="contact-info">
+            <a href="tel:+224 806 6751" class="contact-link">
+                <img src="IMAGES/call.png" alt="Phone Icon">
+                <p>+224 806 6751</p>
+            </a>
+            <a href="mailto:specialcareusa@gmail.com" class="contact-link">
+                <img src="IMAGES/gmail.png" alt="Email Icon">
+                <p>specialcareusa@gmail.com</p>
+            </a>
+            <div class="additional-image">
+                <img src="IMAGES/code.png" alt="Additional Icon">
+            </div>
+        </div>
+    </div>
+
+    <!-- Smooth Scrolling Script -->
+    <script>
+        document.querySelectorAll('.tagline a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
