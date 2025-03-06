@@ -50,34 +50,64 @@ html, body {
 
 /* Page 1: Welcome Page */
 .page-1 {
-    background: url('IMAGES/1.png') center/cover no-repeat;
+    background: url('IMAGES/Copy\ of\ website.png') center/cover no-repeat;
 }
 
 /* Logo */
 .logo {
     position: absolute;
-    top: var(--spacing-lg);
-    left: var(--spacing-lg);
+    bottom: 260px; /* Move the logo down */
+    left: 40px; /* Move the logo to the right */
     z-index: 2;
 }
 
 .logo img {
-    width: 190px;
-    max-width: 150%;
-    height: auto;
+    width: 600px; /* Increase the size of the logo */
+    max-width: 100%; /* Ensure it doesn't overflow on smaller screens */
+    height: auto; /* Maintain aspect ratio */
 }
 
-/* Contact Button with Dropdown */
-.contact-container {
+/* Navigation Bar */
+.navbar {
     position: absolute;
-    top: var(--spacing-lg);
+    top: 50px; /* Move the navbar down a bit */
     right: var(--spacing-lg);
     z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Increased gap between words */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 30px; /* Rounded corners */
 }
 
+/* Tagline as Navigation Links */
+.navbar .tagline {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.navbar .tagline a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 50px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.navbar .tagline a:hover {
+    background: var(--background-light);
+    color: var(--accent-color);
+}
+
+/* Contact Button */
 .contact-button {
     padding: var(--spacing-sm) var(--spacing-md);
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(0, 0, 0, 0.018);
     color: var(--secondary-color);
     border: none;
     border-radius: 35px;
@@ -87,6 +117,7 @@ html, body {
     cursor: pointer;
 }
 
+/* Contact Dropdown */
 .contact-dropdown {
     display: none;
     position: absolute;
@@ -96,7 +127,7 @@ html, body {
     border-radius: var(--border-radius);
     width: 150px;
     text-align: center;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(19, 87, 10, 0.2);
 }
 
 .contact-dropdown a {
@@ -117,240 +148,560 @@ html, body {
     display: block;
 }
 
-/* Main Content */
-.content {
-    text-align: center;
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
+/************************************************************************************************************************************************/
+
+/* Mobile Layout (Portrait Mode) */
+@media (max-width: 768px) and (orientation: portrait) {
+    /* Logo */
+    .logo {
+        top: 36%; /* Move the logo further down */
+        right: 10%; /* Move the logo to the left */
+    }
+
+    .logo img {
+        width: 290px; /* Increase the logo size */
+        max-width: 100%; /* Ensure it doesn't exceed its container */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    /* Page Styling */
+    .page {
+        padding: var(--spacing-sm);
+        min-height: 50vh; /* Set min-height to 50vh */
+    }
+
+    /* Navigation Bar */
+    .navbar {
+        top: 10px; /* Move navbar further down */
+        right: 10px; /* Move navbar more to the right */
+        gap: 3px; /* Smaller gap between links */
+        flex-direction: row; /* Keep navbar items in a row */
+        align-items: center; /* Align items centrally */
+        padding: 5px; /* Further reduce padding */
+        border-radius: 10px; /* Smaller rounded corners */
+        font-size: 0.7rem; /* Smaller font size */
+        height: 30px; /* Set a smaller height for the navbar */
+    }
+
+    /* Tagline as Navigation Links */
+    .navbar .tagline a {
+        font-size: 0.6rem; /* Smaller font size for mobile */
+        padding: 3px 6px; /* Further reduced padding for links */
+        letter-spacing: 0.3px; /* Slightly reduced letter-spacing */
+    }
+
+    /* Contact Button */
+    .contact-button {
+        font-size: 0.7rem; /* Slightly smaller font size */
+        padding: 4px 8px; /* Further reduced padding */
+    }
+}
+/* Mobile Layout (Portrait Mode) */
+@media (max-width: 768px) and (orientation: portrait) {
+    /* Logo */
+    .logo {
+        top: 36%; /* Move the logo further down */
+        right: 10%; /* Move the logo to the left */
+    }
+
+    .logo img {
+        width: 290px; /* Increase the logo size */
+        max-width: 100%; /* Ensure it doesn't exceed its container */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+/* Tablet Layout */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Logo */
+    .logo {
+        position: absolute; /* Ensure absolute positioning */
+        top: 40%; /* Move the logo further down (adjust this value as needed) */
+        left: 35%; /* Center the logo horizontally */
+        transform: translate(-50%, -50%); /* Center the logo precisely */
+    }
+
+    .logo img {
+        width: 490px; /* Increase the logo size for tablets */
+        max-width: 100%; /* Ensure it doesn't exceed its container */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    /* Page Styling */
+    .page {
+        padding: var(--spacing-md); /* Use medium spacing for tablets */
+        min-height: 40vh; /* Reduce min-height for tablets */
+    }
 }
 
-.content h1 {
-    font-size: clamp(2rem, 5vw, 4rem);
-    font-weight: bold;
-    letter-spacing: 3px;
-    margin-bottom: var(--spacing-md);
-    text-transform: uppercase;
+/* Mobile Layout (Landscape Mode) */
+@media (max-width: 768px) and (orientation: landscape) {
+    /* Logo */
+    .logo {
+        position: absolute; /* Ensure absolute positioning */
+        top: 7% !important; /* Move logo a little bit more up */
+        left: 50% !important; /* Center the logo horizontally */
+        transform: translate(-50%, -50%) !important; /* Center the logo precisely */
+        width: 25% !important; /* Keep the logo smaller for landscape mode */
+        z-index: 10; /* Ensure logo is above other elements */
+    }
+
+    .logo img {
+        width: 100% !important; /* Make the logo fill its container */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    /* Page Styling */
+    .page {
+        min-height: 100vh; /* Ensure the page has enough height */
+    }
 }
 
-.content p {
-    font-size: clamp(1rem, 3vw, 1.8rem);
-    letter-spacing: 2px;
-}
-
-/* Tagline */
-.tagline {
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(3, 3, 3, 0.479);
-    padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: 40px;
-    font-size: var(--font-size-sm);
-    letter-spacing: 3px;
-    word-spacing: 6px;
-    text-transform: uppercase;
-    width: auto;
-    max-width: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--spacing-sm);
-    flex-wrap: nowrap;
-}
-
-.tagline a {
-    text-decoration: none;
-    color: var(--secondary-color);
-}
-
-.tagline a span {
-    display: inline-block;
-    padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: 40px;
-    transition: color 0.4s, text-shadow 0.4s, background 0.4s;
-    cursor: pointer;
-    white-space: nowrap;
-}
-
-.tagline a span:hover {
-    color: var(--accent-color);
-    background: var(--background-light);
-    text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
-}
-
-/* Light-Up Animation */
-@keyframes lightUp {
-    0% { color: white; background: rgba(255, 255, 255, 0.1); text-shadow: none; }
-    50% { color: rgb(238, 238, 232); background: rgba(255, 255, 255, 0.2); text-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.4); }
-    100% { color: white; background: rgba(255, 255, 255, 0.1); text-shadow: none; }
-}
-
-.tagline span.active {
-    animation: lightUp 1.5s ease-in-out infinite alternate;
-}
-
-/*********************************************************************************************************************************/
+/*******************************************************************************************************************************************?
 
 
 
 
 /* Page 2: Knowledgeable Care */
 .page-2 {
-    background: rgb(210, 208, 208);
-    color: var(--primary-color);
+    background: white;
+    color: white;
     padding: var(--spacing-lg);
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     min-height: 90vh;
 }
 
-.knowledgeable-care {
+/* Knowledgeable Care Heading */
+.knowledgeable-care-heading {
     text-align: center;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    margin-top: 10px;
 }
 
-.knowledgeable-care h2,
-.knowledgeable-care h3 {
+.knowledgeable-care-heading h2 {
     font-size: var(--font-size-lg);
-    font-weight: 400;
     text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgb(5, 35, 5);
     margin-bottom: var(--spacing-sm);
-    color: var(--primary-color);
 }
 
+/* Photos and Text Container */
 .photos-text-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--spacing-lg);
-    width: 90%;
-    max-width: 1200px;
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
 }
 
+/* Column Styling */
 .column {
-    flex: 1 1 300px; /* Flexible columns with a minimum width */
+    flex: 1;
+    background-color: #242e0c; /* Dark background */
+    border-radius: 30px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 300px;
+    min-height: 600px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+}
+
+.column:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(255, 252, 252, 0.3);
+}
+
+/* Image Section */
+.image-section {
+    background-color: #242e0c; /* Dark background */
+    padding: var(--spacing-sm);
+    padding-top: 40px;
+    height: 300px;
+    display: flex;
     align-items: center;
-    gap: var(--spacing-md);
-    text-align: center;
+    justify-content: center;
 }
 
 .image-section img {
-    width: 170%;
-    max-width: 350px;
-    height: auto;
+    width: 90%;
+    height: 100%;
+    display: block;
     border-radius: var(--border-radius);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+/* Text Section */
+.text-section {
+    padding: var(--spacing-md);
+    color: white;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .text-section h3 {
     font-size: var(--font-size-md);
-    font-weight: 600;
     text-transform: uppercase;
+    letter-spacing: 2px;
     margin-bottom: var(--spacing-sm);
-    color: var(--primary-color);
+    color: white;
 }
 
 .text-section p {
     font-size: var(--font-size-sm);
-    color: var(--primary-color);
-    font-weight: 400;
-    margin: var(--spacing-sm) 0;
-}
-
-/* Middle Column (Dropped Image) */
-.middle-column .image-section img {
-    margin-top: 40px; /* Adjust drop for middle image */
-}
-/******************************************************************************************************************************************/
-/* General Styles */
-:root {
-    --primary-color: #000000;
-    --secondary-color: #ffffff;
-    --spacing-lg: 20px;
-    --spacing-md: 15px;
-    --spacing-sm: 10px;
-    --border-radius: 15px;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-}
-
-/* Page 3: Family Orientated */
-.page-3 {
-    background: #b9b5b581;
-    color: var(--primary-color);
-    padding: var(--spacing-lg);
-    display: flex;
-    flex-direction: row; /* Side-by-side layout */
-    align-items: center;
-    justify-content: space-between;
-    min-height: 60vh;
-    gap: var(--spacing-lg);
-    overflow: hidden;
-    position: relative; /* Ensure green line is positioned correctly */
-}
-
-/* Left Side: Text Content */
-.left-side {
-    width: 50%; /* Take up half the width */
-    max-width: 600px;
-    text-align: left; /* Align text to the left */
-}
-
-.family-orientated h2 {
-    font-size: var(--font-size-lg);
-    font-weight: bold;
-    margin: 0;
-    color: var(--primary-color);
-    text-transform: uppercase;
-    line-height: 1.2; /* Adjust line height for better spacing */
-}
-
-.text-sections {
-    margin-top: var(--spacing-lg);
-}
-
-.text-section p {
-    font-size: var(--font-size-md);
     line-height: 1.6;
-    margin-bottom: var(--spacing-md);
-    color: var(--primary-color);
+    color: white;
+    margin: 0;
 }
 
-/* Right Side: Single Image */
-.right-side {
-    width: 90%; /* Take up half the width */
-    max-width: 600px;
+/* Mobile Portrait Mode */
+@media (max-width: 768px) and (orientation: portrait) {
+    .page-2 {
+        padding: var(--spacing-sm);
+        min-height: auto;
+    }
+
+    .knowledgeable-care-heading h2 {
+        font-size: var(--font-size-md);
+        letter-spacing: 2px;
+    }
+
+    .photos-text-container {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        padding: 0 var(--spacing-sm);
+    }
+
+    .column {
+        min-width: auto;
+        min-height: auto;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .image-section {
+        height: 200px;
+        padding-top: 20px;
+    }
+
+    .text-section {
+        padding: var(--spacing-sm);
+    }
+
+    .text-section h3 {
+        font-size: var(--font-size-sm);
+    }
+
+    .text-section p {
+        font-size: var(--font-size-xs);
+    }
+}
+
+
+
+/* Mobile Landscape Mode */
+@media (max-width: 768px) and (orientation: landscape) {
+    .page-2 {
+        padding: var(--spacing-md);
+        min-height: auto;
+    }
+
+    .knowledgeable-care-heading {
+        margin-bottom: var(--spacing-sm); /* Reduce space below the heading */
+    }
+
+    .knowledgeable-care-heading h2 {
+        font-size: var(--font-size-md);
+        letter-spacing: 2px;
+        margin-top: -10px; /* Move the heading up by 10px */
+    }
+
+    .photos-text-container {
+        flex-direction: row;
+        gap: var(--spacing-md);
+        padding: 0 var(--spacing-sm);
+        margin-top: var(--spacing-sm); /* Adjust space above the container */
+    }
+
+    .column {
+        min-width: auto;
+        min-height: auto;
+    }
+
+    .image-section {
+        height: 200px;
+        padding-top: 20px;
+    }
+
+    .text-section {
+        padding: var(--spacing-sm);
+        margin-top: -30px; /* Move the text section further up */
+    }
+
+    .text-section h3 {
+        font-size: var(--font-size-sm);
+    }
+
+    .text-section p {
+        font-size: var(--font-size-xs);
+    }
+
+    .usa-british-trained {
+        margin-top: -30px; /* Move the text up */
+    }
+}
+
+
+/* Tablet Portrait */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .page-2 {
+        padding: var(--spacing-lg);
+        min-height: auto;
+    }
+
+    .knowledgeable-care-heading {
+        margin-bottom: var(--spacing-sm); /* Reduce space below the heading */
+    }
+
+    .knowledgeable-care-heading h2 {
+        font-size: var(--font-size-lg);
+        letter-spacing: 3px;
+        margin-top: -20px; /* Move the heading up by 20px */
+    }
+
+    .photos-text-container {
+        gap: var(--spacing-md); /* Space between columns */
+        padding: 0 var(--spacing-md);
+        display: flex;
+        flex-direction: row; /* Place columns side by side */
+        justify-content: space-between; /* Distribute columns evenly */
+        align-items: stretch; /* Ensure columns stretch to the same height */
+    }
+
+    .column {
+        flex: 1; /* Allow columns to grow and share available space */
+        min-width: auto;
+        min-height: auto;
+        max-height: 400px; /* Adjust this value to limit column height */
+        overflow: hidden; /* Prevent content from overflowing */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Distribute content evenly */
+    }
+
+    .image-section {
+        height: 200px; /* Adjust height as needed */
+        padding-top: 20px; /* Adjust padding as needed */
+    }
+
+    .text-section {
+        padding: var(--spacing-md);
+        margin-top: -30px; /* Move the text section further up */
+    }
+
+    .text-section h3 {
+        font-size: var(--font-size-md);
+    }
+
+    .text-section p {
+        font-size: var(--font-size-sm);
+    }
+
+    .usa-british-trained {
+        margin-top: -30px; /* Move the text up */
+    }
+}
+
+
+
+/*********************************************************************************************************************************************/
+/* Page 3: About Us */
+.page-3 {
+    background-color: #242e0c; /* Dark background */
+    color: white;
+    text-align: center;
+    font-family: 'Times New Roman', serif;
+    padding: 50px 0;
+    min-height: 50vh; /* Adjusted height for better spacing */
     display: flex;
-    justify-content: flex-end; /* Align image to the right */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.right-side .image-section img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Stars */
+.stars {
+    font-size: 50px; /* Larger stars */
+    color: gold;
+    margin-bottom: 20px; /* Increased margin to move title down */
+}
+
+/* About Us Title */
+.about-title {
+    font-size: 60px; /* Larger title */
+    font-weight: bold;
+    margin-bottom: 30px; /* Adjusted margin for better spacing */
+}
+
+/* About Us Text */
+.about-text {
+    font-size: 26px; /* Larger text */
+    line-height: 1.4; /* Reduced line height for smaller gaps */
+    max-width: 800px;
+    margin: auto;
+    padding: 0 20px; /* Added padding for better readability */
+    margin-top: -10px; /* Move text up slightly */
+}
+
+/* Adjust gaps between paragraphs */
+.about-text p {
+    margin-bottom: -10px; /* Reduced gap between paragraphs */
+}
+
+/**********************************************************************************************************************/
+
+/* Mobile page 3  Portrait Mode */
+@media (max-width: 768px) and (orientation: portrait) {
+    .page-3 {
+        padding: 30px 0; /* Reduce padding for smaller screens */
+        min-height: 40vh; /* Adjust height for mobile portrait */
+    }
+
+    .stars {
+        font-size: 30px; /* Smaller stars */
+        margin-bottom: 10px; /* Reduce margin */
+    }
+
+    .about-title {
+        font-size: 40px; /* Smaller title */
+        margin-bottom: 20px; /* Reduce margin */
+    }
+
+    .about-text {
+        font-size: 18px; /* Smaller text */
+        line-height: 1.3; /* Adjust line height */
+        max-width: 90%; /* Reduce max-width for better readability */
+        padding: 0 15px; /* Adjust padding */
+        margin-top: -5px; /* Adjust margin */
+    }
+
+    .about-text p {
+        margin-bottom: -5px; /* Further reduce gap between paragraphs */
+    }
+}
+
+/* Mobile page 3 Landscape Mode */
+@media (max-width: 768px) and (orientation: landscape) {
+    .page-3 {
+        padding: 40px 0; /* Adjust padding for landscape */
+        min-height: 40vh; /* Adjust height for mobile landscape */
+    }
+
+    .stars {
+        font-size: 40px; /* Slightly larger stars */
+        margin-bottom: 15px; /* Adjust margin */
+    }
+
+    .about-title {
+        font-size: 50px; /* Slightly larger title */
+        margin-bottom: 25px; /* Adjust margin */
+    }
+
+    .about-text {
+        font-size: 22px; /* Slightly larger text */
+        line-height: 1.35; /* Adjust line height */
+        max-width: 90%; /* Reduce max-width for better readability */
+        padding: 0 20px; /* Adjust padding */
+        margin-top: -8px; /* Adjust margin */
+    }
+
+    .about-text p {
+        margin-bottom: -8px; /* Adjust gap between paragraphs */
+    }
+}
+
+/* Tablet  page 3 Layout */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .page-3 {
+        padding: 40px 0; /* Adjust padding for tablets */
+        min-height: 30vh; /* Adjust height for tablets */
+    }
+
+    .stars {
+        font-size: 45px; /* Slightly smaller stars */
+        margin-bottom: 18px; /* Adjust margin */
+    }
+
+    .about-title {
+        font-size: 55px; /* Slightly smaller title */
+        margin-bottom: 28px; /* Adjust margin */
+    }
+
+    .about-text {
+        font-size: 24px; /* Slightly smaller text */
+        line-height: 1.35; /* Adjust line height */
+        max-width: 90%; /* Reduce max-width for better readability */
+        padding: 0 20px; /* Adjust padding */
+        margin-top: -8px; /* Adjust margin */
+    }
+
+    .about-text p {
+        margin-bottom: -8px; /* Adjust gap between paragraphs */
+    }
 }
 
 
-/* Contact Information */
+
+
+
+/**************************************************************************************************************************************/
+/* Page 4: Contact Info */
+.page-4 {
+    background: white; /* White background for contact info */
+    padding: var(--spacing-lg) 0; /* Increased padding for taller section */
+    text-align: center;
+    min-height: 20vh; /* Adjusted height for better spacing */
+}
+
+/* Contact Info Heading */
+.contact-heading h2 {
+    font-size: 2.5rem; /* Larger heading */
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: var(--spacing-lg); /* More space below heading */
+    color: rgb(6, 35, 6); /* Green text */
+}
+
+/* Contact Info Content */
+.contact-info-container {
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+}
+
 .contact-info {
     display: flex;
+    flex-direction: column; /* Stack contact text and image vertically */
+    align-items: center; /* Center everything horizontally */
+    gap: var(--spacing-md); /* Space between text and image */
+}
+
+.contact-item {
+    display: flex;
     align-items: center;
-    gap: var(--spacing-lg);
-    z-index: 2; /* Ensure it's above the green line */
-    position: relative; /* Relative positioning for child elements */
-    background-color: rgb(1, 33, 7);
+    gap: var(--spacing-sm);
+}
+
+/* Move Email Text to the Right */
+.email-and-image .contact-item {
+    margin-left: 30px; /* Adjust this value to move it further */
 }
 
 .contact-link {
@@ -358,114 +709,161 @@ body {
     align-items: center;
     gap: var(--spacing-sm);
     text-decoration: none;
-    color: var(--secondary-color);
-    white-space: nowrap;
-}
-
-.contact-link img {
-    width: 30px;
-    height: auto;
-    transition: transform 0.3s ease;
+    color: rgb(6, 35, 6); /* Green text */
 }
 
 .contact-link p {
-    font-size: var(--font-size-sm);
-    font-weight: 590;
+    font-size: 1.9rem; /* Larger text */
     margin: 0;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    color: var(--secondary-color);
-    letter-spacing: 0.5px;
 }
 
-.contact-link img:hover {
-    transform: scale(1.1);
+/* Email and Additional Image Container */
+.email-and-image {
+    display: flex;
+    align-items: center; /* Align email and image vertically */
+    gap: var(--spacing-sm); /* Space between email and image */
+    position: relative; /* For positioning the Additional Image */
 }
 
+/* Additional Image */
 .additional-image {
-    width: 30px;
-    height: auto;
-    z-index: 2;
+    position: absolute; /* Position the image absolutely */
+    right: -100px; /* Move the image to the right side of the screen */
+    top: -30%; /* Move the image up */
+    transform: translateY(-50%); /* Center vertically */
 }
 
 .additional-image img {
-    width: 100%;
-    height: auto;
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80px; /* Larger icon */
+    height: 80px;
 }
 
-/* Media Queries for Responsiveness */
-@media (max-width: 767px) {
-    .page-3 {
-        flex-direction: column; /* Stack vertically on mobile */
-        padding: var(--spacing-md);
-        min-height: auto;
+/* Footer */
+footer {
+    background-color: #242e0c; /* Dark background */
+    color: white; /* White text */
+    text-align: center;
+    padding: var(--spacing-md);
+    font-size: var(--font-size-sm);
+}
+
+/***********************************************************************************************************/
+
+/* Mobile  page 4 Portrait Mode */
+@media (max-width: 768px) and (orientation: portrait) {
+    .page-4 {
+        padding: var(--spacing-md) 0; /* Reduce padding for smaller screens */
+        min-height: 15vh; /* Adjust height for mobile portrait */
     }
 
-    .left-side,
-    .right-side {
-        width: 100%; /* Full width on mobile */
-        max-width: 100%;
-        text-align: center; /* Center text on mobile */
-    }
-
-    .right-side {
-        justify-content: center; /* Center image on mobile */
-    }
-
-    .family-orientated h2 {
-        font-size: 2rem; /* Smaller font for mobile */
-    }
-
-    .text-section p {
-        font-size: 1rem; /* Smaller font for mobile */
-    }
-
-    .green-line-container {
-        height: 50px; /* Smaller height for mobile */
-        padding: 0 var(--spacing-md); /* Reduce padding for mobile */
-    }
-
-    .contact-link img {
-        width: 25px; /* Smaller icons for mobile */
+    .contact-heading h2 {
+        font-size: 1.8rem; /* Smaller heading */
+        margin-bottom: var(--spacing-md); /* Reduce margin */
     }
 
     .contact-link p {
-        font-size: 0.8rem; /* Smaller font for mobile */
+        font-size: 1.2rem; /* Smaller text */
     }
 
     .additional-image {
-        width: 25px; /* Smaller image for mobile */
+        right: -60px; /* Adjust position for smaller screens */
+        top: -20%; /* Adjust position for smaller screens */
+    }
+
+    .additional-image img {
+        width: 50px; /* Smaller icon */
+        height: 50px;
+    }
+
+    footer {
+        padding: var(--spacing-sm); /* Reduce padding for smaller screens */
+        font-size: var(--font-size-xs); /* Smaller font size */
     }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-    .page-3 {
-        min-height: 80vh; /* Adjust height for tablet */
+/* Mobile  page 4 Landscape Mode */
+@media (max-width: 768px) and (orientation: landscape) {
+    .page-4 {
+        padding: var(--spacing-md) 0; /* Adjust padding for landscape */
+        min-height: 15vh; /* Adjust height for mobile landscape */
     }
 
-    .family-orientated h2 {
-        font-size: 2.5rem; /* Medium font for tablet */
-    }
-
-    .text-section p {
-        font-size: 1.25rem; /* Medium font for tablet */
-    }
-
-    .green-line-container {
-        height: 60px; /* Medium height for tablet */
-        padding: 0 var(--spacing-lg); /* Medium padding for tablet */
-    }
-
-    .contact-link img {
-        width: 30px; /* Medium icons for tablet */
+    .contact-heading h2 {
+        font-size: 2rem; /* Slightly larger heading */
+        margin-bottom: var(--spacing-md); /* Adjust margin */
     }
 
     .contact-link p {
-        font-size: 1rem; /* Medium font for tablet */
+        font-size: 1.5rem; /* Slightly larger text */
     }
 
     .additional-image {
-        width: 30px; /* Medium image for tablet */
+        right: -80px; /* Adjust position for landscape */
+        top: -25%; /* Adjust position for landscape */
     }
-} 
+
+    .additional-image img {
+        width: 60px; /* Slightly larger icon */
+        height: 60px;
+    }
+
+    footer {
+        padding: var(--spacing-sm); /* Adjust padding for landscape */
+        font-size: var(--font-size-xs); /* Smaller font size */
+    }
+}
+
+
+
+/* Tablet  page 4 Layout */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .page-4 {
+        padding: var(--spacing-lg) 0; /* Adjust padding for tablets */
+        min-height: 20vh; /* Increase height to accommodate content */
+        overflow: hidden; /* Prevent overflow */
+    }
+
+    .contact-heading h2 {
+        font-size: 2.2rem; /* Slightly smaller heading */
+        margin-bottom: var(--spacing-md); /* Adjust margin */
+    }
+
+    .contact-link p {
+        font-size: 1.7rem; /* Slightly smaller text */
+    }
+
+    .additional-image {
+        right: -80px; /* Adjust position for tablets */
+        top: -20%; /* Adjust position for tablets */
+    }
+
+    .additional-image img {
+        width: 70px; /* Slightly smaller icon */
+        height: 70px;
+    }
+
+    footer {
+        padding: var(--spacing-md); /* Adjust padding for tablets */
+        font-size: var(--font-size-sm); /* Slightly smaller font size */
+    }
+}
+
+
+/* Tablet Layout */
+@media (min-width: 769px) and (max-width: 1024px) {
+    footer {
+        background: rgb(6, 35, 6); /* Green background */
+        color: white; /* Ensure text is white */
+        text-align: center;
+        padding: var(--spacing-md); /* Medium padding for tablets */
+        font-size: var(--font-size-sm); /* Slightly larger font size for tablets */
+        position: relative; /* Use relative positioning */
+        z-index: 1000; /* Ensure footer is above other content */
+        margin-top: auto; /* Push footer to the bottom */
+        min-height: 30vh; /* Increase height to accommodate content */
+        display: flex;
+        align-items: center; /* Vertically center footer content */
+        justify-content: center; /* Horizontally center footer content */
+        overflow: visible; /* Ensure content is not hidden */
+    }
+}
